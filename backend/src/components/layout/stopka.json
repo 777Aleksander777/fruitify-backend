@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_layout_stopkas",
+  "info": {
+    "displayName": "Stopka"
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.logo-link",
+      "required": true
+    },
+    "tekst": {
+      "type": "string",
+      "required": true
+    },
+    "linki": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.link",
+      "min": 1,
+      "required": true
+    }
+  }
+}

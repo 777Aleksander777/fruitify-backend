@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_layout_promowanes",
+  "info": {
+    "displayName": "Promowane",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "nazwa": {
+      "type": "string",
+      "required": true
+    },
+    "produkt": {
+      "type": "component",
+      "repeatable": true,
+      "component": "utilities.produtk-ref"
+    }
+  }
+}

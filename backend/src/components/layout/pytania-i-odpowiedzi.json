@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_layout_pytania_i_odpowiedzis",
+  "info": {
+    "displayName": "PytaniaIOdpowiedzi",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "nazwa": {
+      "type": "string",
+      "required": true
+    },
+    "pytaniaIOdpowiedzi": {
+      "type": "component",
+      "repeatable": true,
+      "component": "utilities.pytania-i-odpowiedzi"
+    }
+  }
+}

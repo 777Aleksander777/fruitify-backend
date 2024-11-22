@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_layout_pytanias",
+  "info": {
+    "displayName": "Pytania"
+  },
+  "options": {},
+  "attributes": {
+    "nazwa": {
+      "type": "string",
+      "required": true
+    },
+    "pytaniaIOdpowiedzi": {
+      "type": "component",
+      "repeatable": true,
+      "component": "utilities.pytania-i-odpowiedzi"
+    }
+  }
+}

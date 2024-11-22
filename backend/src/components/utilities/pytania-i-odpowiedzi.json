@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_utilities_pytania_i_odpowiedzis",
+  "info": {
+    "displayName": "PytaniaIOdpowiedzi"
+  },
+  "options": {},
+  "attributes": {
+    "pytanie": {
+      "type": "string",
+      "required": true
+    },
+    "odpowiedz": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

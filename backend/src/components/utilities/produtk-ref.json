@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_utilities_produtk_refs",
+  "info": {
+    "displayName": "ProdutkRef"
+  },
+  "options": {},
+  "attributes": {
+    "produkty": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::produkty.produkty"
+    }
+  }
+}
