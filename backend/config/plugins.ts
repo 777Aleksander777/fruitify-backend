@@ -22,7 +22,9 @@ module.exports = ({ env }) => ({
       apiKey: env('SUPABASE_API_KEY'),
       bucket: env('SUPABASE_BUCKET'),
       directory: env('SUPABASE_DIRECTORY'), // Opcjonalnie
-      options: {}, // Możesz dodać dodatkowe opcje, np. kontrolę uprawnień
+      options: {
+        debug: true
+      }, // Możesz dodać dodatkowe opcje, np. kontrolę uprawnień
     },
     actionOptions: {
       upload: {},
