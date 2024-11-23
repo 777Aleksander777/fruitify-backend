@@ -36,6 +36,6 @@ export function StrapiImage({
     
 
     return (
-        <Image className="object-scale-down h-full m-auto" src={url} alt={alt || ""} width={width || undefined} height={height || undefined}/> 
+        <Image className="object-scale-down h-full m-auto" src={src} alt={alt || ""} width={width || undefined} height={height || undefined}/> 
     )
 }
