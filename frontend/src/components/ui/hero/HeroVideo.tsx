@@ -1,4 +1,4 @@
-import { HeroVideoProps } from "@/types/home"
+import { HeroVideoProps } from  "../../../types/home"
 import { StrapiVideo } from "../video"
 
 export function HeroVideo({ data }: {readonly data : HeroVideoProps}) {

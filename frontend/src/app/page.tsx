@@ -1,10 +1,10 @@
-import { getHomePage } from "@/data/loader";
+import { getHomePage } from "../data/loader";
 import { Button, Accordion, AccordionItem } from "@nextui-org/react";
-import { HeroVideo } from '@/components/ui/hero/HeroVideo';
-import { BestProducts } from '@/components/ui/bestProducts/bestProducts';
+import { HeroVideo } from '../components/ui/hero/HeroVideo';
+import { BestProducts } from '../components/ui/bestProducts/bestProducts';
 import Image from "next/image";
-import QuestionsAndAnswes from "@/components/ui/qA/qA";
-import Contact from "@/components/ui/contact/contact";
+import QuestionsAndAnswes from "../components/ui/qA/qA";
+import Contact from "../components/ui/contact/contact";
 
 
 const blockComponents = {

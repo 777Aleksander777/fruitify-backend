@@ -1,5 +1,5 @@
-import ProductCard from "@/components/product/card/product";
-import { BestProductsProps } from "@/types/bestProducts";
+import ProductCard from "../../product/card/product";
+import { BestProductsProps } from "../../../types/bestProducts";
 
 // interface BestProductsProps {
 //     nazwa: string,

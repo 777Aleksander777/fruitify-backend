@@ -3,9 +3,9 @@
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button, Spinner, Input } from "@nextui-org/react";
-import { getProductData } from "@/data/loader";
-import { ProductProps } from '@/types/product';
-import { StrapiImage } from '@/components/ui/strapi-image';
+import { getProductData } from "../../../data/loader";
+import { ProductProps } from '../../../types/product';
+import { StrapiImage } from '../../../components/ui/strapi-image';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";

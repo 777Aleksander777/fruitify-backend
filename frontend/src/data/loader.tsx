@@ -1,4 +1,4 @@
-import { getStrapiURL } from "@/lib/utils";
+import { getStrapiURL } from "../lib/utils";
 import qs from "qs";
 
 const baseURL = getStrapiURL();

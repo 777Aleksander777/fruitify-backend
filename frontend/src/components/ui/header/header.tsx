@@ -1,6 +1,6 @@
 import React from "react";
 import TopNav from "./top-nav";
-import { HeaderProps } from "@/types/header";
+import { HeaderProps } from "../../../types/header";
 
 
 // export interface HeaderProps {

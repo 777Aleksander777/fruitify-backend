@@ -3,9 +3,9 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { StrapiImage } from "./strapi-image";
-import { ImageProps } from "@/types/image";
-import { LogoProps } from "@/types/logo"
-import { getStrapiURL } from "@/lib/utils";
+import { ImageProps } from "../../types/image";
+import { LogoProps } from "../../types/logo"
+import { getStrapiURL } from "../../lib/utils";
 import { Spinner } from "@nextui-org/react";
 
 

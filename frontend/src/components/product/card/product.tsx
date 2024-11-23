@@ -1,11 +1,11 @@
 "use client";
 
-import { ProductProps } from "@/types/product";
+import { ProductProps } from "../../../types/product";
 import { Button, Input, Card, Spinner, Skeleton } from "@nextui-org/react";
-import { StrapiImage } from "@/components/ui/strapi-image";
+import { StrapiImage } from "../../ui/strapi-image";
 import { useEffect, useState } from "react";
-import { getProductData } from "@/data/loader";
-import { addOrUpdateProduct, getProductsFromLocalStorage } from "@/lib/localStorage";
+import { getProductData } from "../../../data/loader";
+import { addOrUpdateProduct, getProductsFromLocalStorage } from "../../../lib/localStorage";
 
 type Slug = {
     slug: string,

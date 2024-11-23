@@ -1,6 +1,6 @@
 "use client"
 
-import { QAProps } from "@/types/qA"
+import { QAProps } from "../../../types/qA"
 import { Accordion, AccordionItem } from "@nextui-org/react"
 
 

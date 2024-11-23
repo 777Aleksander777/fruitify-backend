@@ -1,7 +1,7 @@
 import { link } from "fs";
 import Link from "next/link";
 import React from "react";
-import { FooterProps } from "@/types/footer";
+import { FooterProps } from "../../../types/footer";
 import Logo from "../logo";
 
 export async function Footer({ data }: Readonly<FooterProps>) {

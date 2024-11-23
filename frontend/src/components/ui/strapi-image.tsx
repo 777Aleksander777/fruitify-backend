@@ -3,8 +3,8 @@
 import React, { useEffect, useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { getStrapiMedia } from "@/lib/utils";
-import { ImageProps } from "@/types/image";
+import { getStrapiMedia } from "../../lib/utils";
+import { ImageProps } from "../../types/image";
 import { Spinner } from "@nextui-org/react";
 
 

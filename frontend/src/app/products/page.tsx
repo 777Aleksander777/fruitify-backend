@@ -1,7 +1,7 @@
 "use client";
 
-import ProductCard from "@/components/product/card/product";
-import { getProducts } from "@/data/loader";
+import ProductCard from "../../components/product/card/product";
+import { getProducts } from "../../data/loader";
 import { useEffect, useState } from "react";
 import { Input, Pagination, Select, SelectItem, Spinner } from "@nextui-org/react";
 
