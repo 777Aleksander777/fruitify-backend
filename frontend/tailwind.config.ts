@@ -21,7 +21,7 @@ export default {
     },
   },
   darkMode: "class",
-  plugins: [nextui({
+  plugins: [require("@nextui-org/react")({
     themes: {
       light: {
         colors: {
