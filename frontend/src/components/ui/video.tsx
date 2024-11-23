@@ -3,7 +3,7 @@
 import React, { useEffect, useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { getStrapiMedia } from "../../lib/utils";
+import { getPublicUrl, getStrapiMedia } from "../../lib/utils";
 import { ImageProps } from "../../types/image";
 import { Spinner } from "@nextui-org/react";
 
@@ -24,7 +24,7 @@ export function StrapiVideo({
     // const src = await getStrapiURL() + imageURL;
     useEffect(() => {
         const fetchImage = async () => {
-          const mediaSrc = await getStrapiMedia(src);
+          const mediaSrc = await getPublicUrl(src);
           setURL(mediaSrc);
           console.log(src);
           console.log('####################')

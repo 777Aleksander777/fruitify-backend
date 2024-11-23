@@ -10,3 +10,17 @@ export function getStrapiMedia(url: string | null) {
     if(url.startsWith("https") || url.startsWith("//")) return url;
     return `${getStrapiURL()}${url}`;
 }
+
+
+import { supabase } from './supabase';
+
+// Funkcja pobierająca URL do jednego pliku
+export const getPublicUrl = (path: string) => {
+    const { data } = supabase.storage
+      .from('fruitify')
+      .getPublicUrl(path);
+  
+    return data?.publicUrl;
+  };
+  
+
