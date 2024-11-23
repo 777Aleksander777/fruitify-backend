@@ -12,6 +12,14 @@ const nextConfig: NextConfig = {
     config.resolve.alias['tailwindcss/plugin.js'] = path.resolve(
       'node_modules/tailwindcss/plugin.js'
     );
+    config.resolve.alias["@nextui-org/react"] = path.resolve(
+      __dirname,
+      "node_modules/@nextui-org/react"
+    );
+    config.resolve.alias["@nextui-org/theme"] = path.resolve(
+      __dirname,
+      "node_modules/@nextui-org/theme"
+    );
     return config;
   },
   images: {
