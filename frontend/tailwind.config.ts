@@ -1,5 +1,7 @@
-const { nextui } = require("@nextui-org/react");
-import type { Config } from "tailwindcss";
+// const { nextui } = require("@nextui-org/react");
+const { nextui } = require("./node_modules/@nextui-org/react")
+// import type { Config } from "tailwindcss";
+import type { Config } from "./node_modules/tailwindcss/types/config";
 
 export default {
   content: [
