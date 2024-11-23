@@ -14,22 +14,33 @@
 //       },
 //     },
 //   });
-module.exports = ({ env }) => ({
-  upload: {
-    provider: 'strapi-provider-upload-supabase',
-    providerOptions: {
-      apiUrl: env('SUPABASE_API_URL'),
-      apiKey: env('SUPABASE_API_KEY'),
-      bucket: env('SUPABASE_BUCKET'),
-      directory: env('SUPABASE_DIRECTORY'), // Opcjonalnie
-      options: {
-        debug: true
-      }, // Możesz dodać dodatkowe opcje, np. kontrolę uprawnień
-    },
-    actionOptions: {
-      upload: {},
-      uploadStream: {},
-      delete: {},
-    },
-  },
-});
+// module.exports = ({ env }) => ({
+//   upload: {
+//     provider: 'strapi-provider-upload-supabase',
+//     providerOptions: {
+//       apiUrl: env('SUPABASE_API_URL'),
+//       apiKey: env('SUPABASE_API_KEY'),
+//       bucket: env('SUPABASE_BUCKET'),
+//       directory: env('SUPABASE_DIRECTORY'), // Opcjonalnie
+//       options: {
+//         debug: true
+//       }, // Możesz dodać dodatkowe opcje, np. kontrolę uprawnień
+//     },
+//     actionOptions: {
+//       upload: {},
+//       uploadStream: {},
+//       delete: {},
+//     },
+//   },
+// });
+
+module.exports = {
+  provider: "supabase",
+  providerOptions: {
+    apiUrl: process.env.SUPABASE_API_URL,
+    apiKey: process.env.SUPABASE_API_KEY,
+    bucket: process.env.SUPABASE_BUCKET,
+    directory: process.env.SUPABASE_DIRECTORY,
+    options: {}
+  }
+}
