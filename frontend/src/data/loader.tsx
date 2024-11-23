@@ -4,9 +4,9 @@ import qs from "qs";
 const baseURL = getStrapiURL();
 
 async function fetchData(url: string) {
-    console.log("############################")
-    console.log(url);
-    console.log("############################")
+    // console.log("############################")
+    // console.log(url);
+    // console.log("############################")
     const authToken = null;
     const headers = {
         method: "GET",
