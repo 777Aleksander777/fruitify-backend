@@ -21,7 +21,7 @@ module.exports = ({ env }) => ({
       apiUrl: env('SUPABASE_API_URL'),
       apiKey: env('SUPABASE_API_KEY'),
       bucket: env('SUPABASE_BUCKET'),
-      directory: env('SUPABASE_DIRECTORY', 'uploads'), // Opcjonalnie
+      directory: env('SUPABASE_DIRECTORY'), // Opcjonalnie
       options: {}, // Możesz dodać dodatkowe opcje, np. kontrolę uprawnień
     },
     actionOptions: {
