@@ -6,7 +6,8 @@ import { CartProps, getProductsFromLocalStorage, removeProduct } from "../../lib
 import ProductCard from "../../components/product/card/product";
 import { ProductProps } from "../../types/product";
 import { getProductData } from "../../data/loader";
-import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Checkbox, Input, Link, Pagination, Card} from "@nextui-org/react";
+// import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Checkbox, Input, Link, Pagination, Card} from "@nextui-org/react";
+import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Checkbox, Input, Link, Pagination, Card} from "../../../node_modules/@nextui-org/react/dist/index";
 
 
 export default function Cart() {

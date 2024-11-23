@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+// import localFont from "next/font/local";
+import localFont from "../../node_modules/next/font/local"
 import "./globals.css";
 import { getGlobalData, getGlobalMetadata } from "../data/loader";
-import { error } from "console";
 import { Header } from "../components/ui/header/header"; 
 import { Footer } from "../components/ui/footer/footer";
 import { Providers } from "./providers";

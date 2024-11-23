@@ -1,4 +1,5 @@
-import { Spinner } from "@nextui-org/react";
+// import { Spinner } from "@nextui-org/react";
+import { Spinner } from "../../node_modules/@nextui-org/react/dist/index";
 
 
 export default async function Lodaing() {
