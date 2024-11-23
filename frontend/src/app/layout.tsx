@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "../../node_modules/next/font/local";
+import localFont from "next/font/local";
 import "./globals.css";
 import { getGlobalData, getGlobalMetadata } from "../data/loader";
 import { error } from "console";

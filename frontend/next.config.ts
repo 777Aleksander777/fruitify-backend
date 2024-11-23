@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
     );
     config.resolve.alias["@nextui-org/react"] = path.resolve(
       __dirname,
-      "node_modules/@nextui-org/react"
+      "node_modules/@nextui-org/react/dist/index"
     );
     config.resolve.alias["@nextui-org/theme"] = path.resolve(
       __dirname,
