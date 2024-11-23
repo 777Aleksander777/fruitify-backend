@@ -36,6 +36,6 @@ export function StrapiImage({
     
 
     return (
-        <Image className="object-scale-down h-full m-auto" src={"https://cswuhyugfqkxtbycmfev.supabase.co/storage/v1/object/public/fruitify/uploads/ziemniak.png-4b7e7f6b70d94e5ac094ad9a0da2617c.png"} alt={alt || ""} width={width || undefined} height={height || undefined}/> 
+        <Image className="object-scale-down h-full m-auto" src={url} alt={alt || ""} width={width || undefined} height={height || undefined}/> 
     )
 }
