@@ -23,7 +23,7 @@ module.exports = ({ env }) => ({
             accessKeyId: env('SUPABASE_KEY'), // Supabase Service Key
             secretAccessKey: env('SUPABASE_SECRET'), // Może być tym samym co SUPABASE_KEY
             region: 'eu-central-1', // Supabase nie wymaga regionu, ale warto podać.
-            endpoint: env('SUPABASE_URL') + '/storage/v1/s3', // Twoje API Supabase
+            endpoint: env('SUPABASE_URL') + '/storage/v1', // Twoje API Supabase
             params: {
               Bucket: env('SUPABASE_BUCKET'), // Nazwa zasobnika
             },
