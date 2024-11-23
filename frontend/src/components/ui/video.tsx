@@ -46,7 +46,7 @@ export function StrapiVideo({
 
         // </video>
         <video className="m-auto rounded-xl drop-shadow-[0_0_24px_rgba(0,0,0,1)]" width="1200" height="auto" autoPlay={true} preload="auto" muted>
-        <source src={src} type="video/mp4" />
+        <source src={url} type="video/mp4" />
         Your browser does not support the video tag.
         </video>
     )
