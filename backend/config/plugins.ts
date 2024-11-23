@@ -24,5 +24,10 @@ module.exports = ({ env }) => ({
       directory: env('SUPABASE_DIRECTORY', 'uploads'), // Opcjonalnie
       options: {}, // Możesz dodać dodatkowe opcje, np. kontrolę uprawnień
     },
+    actionOptions: {
+      upload: {},
+      uploadStream: {},
+      delete: {},
+    },
   },
 });
