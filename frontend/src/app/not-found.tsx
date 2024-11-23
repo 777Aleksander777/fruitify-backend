@@ -1,4 +1,5 @@
-import { Button, Link } from "@nextui-org/react";
+// import { Button, Link } from "@nextui-org/react";
+import { Button, Link } from "../../node_modules/@nextui-org/react/dist/index";
 
 
 export default async function NotFound() {
