@@ -9,7 +9,7 @@ import { StrapiImage } from '../../../components/ui/strapi-image';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
-import { addOrUpdateProduct, getProductsFromLocalStorage } from "@/lib/localStorage";
+import { addOrUpdateProduct, getProductsFromLocalStorage } from "../../../lib/localStorage";
 // import { loadStripe } from "@stripe/stripe-js";
 
 // const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY || '');

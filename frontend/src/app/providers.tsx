@@ -1,5 +1,5 @@
-// import {NextUIProvider} from '@nextui-org/react'
-import {NextUIProvider} from '../../node_modules/@nextui-org/react/dist/index'
+import {NextUIProvider} from '@nextui-org/react'
+// import {NextUIProvider} from '../../node_modules/@nextui-org/react/dist/index'
 
 export function Providers({children}: { children: React.ReactNode }) {
   return (
