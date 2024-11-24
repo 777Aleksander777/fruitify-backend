@@ -114,6 +114,12 @@ export default function Cart() {
       setIsPaying(false);
       return null;
       };
+      const prefix = parseInt(kodPocztowy.split("-")[0], 10);
+      console.log("Prefix: " + prefix);
+    if(parseInt(kodPocztowy.split("-")[0], 10) < 35 || parseInt(kodPocztowy.split("-")[0], 10) > 39){
+      setIsPaying(false);
+      return null;
+    }
       setIsPaying(true);
       
       const stripe = await stripePromise;
