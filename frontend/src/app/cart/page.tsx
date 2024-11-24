@@ -113,11 +113,14 @@ export default function Cart() {
       setIsBlikCodeStart(true);
       setIsPaying(false);
       return null;
-      };
-      const prefix = parseInt(kodPocztowy.split("-")[0], 10);
-      console.log("Prefix: " + prefix);
+    };
+    const prefix = parseInt(kodPocztowy.split("-")[0], 10);
+    console.log("Prefix: " + prefix);
     if(parseInt(kodPocztowy.split("-")[0], 10) < 35 || parseInt(kodPocztowy.split("-")[0], 10) > 39){
       setIsPaying(false);
+      setIsPostalCodeStart(true);
+      setKodPocztowy("");
+      alert("Dostawa poza podkarpacie możliwa dopiero po kontakcie z nami!");
       return null;
     }
       setIsPaying(true);
