@@ -25,7 +25,7 @@ export function StrapiImage({
         const fetchImage = async () => {
           // const imageSrc = await getStrapiMedia(src);
           const imageSrc = await getPublicUrl(src);
-          console.log("Image src: " + imageSrc)
+          console.log("Image src: " + src)
           setURL(imageSrc);
         };
     
@@ -37,6 +37,6 @@ export function StrapiImage({
     
 
     return (
-        <Image className="object-scale-down h-full m-auto" src={url} alt={alt || ""} width={width || undefined} height={height || undefined}/> 
+        <Image className="object-scale-down h-full m-auto" src={src} alt={alt || ""} width={width || undefined} height={height || undefined}/> 
     )
 }
