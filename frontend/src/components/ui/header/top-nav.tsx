@@ -107,7 +107,7 @@ export default function TopNav({ data, logoUrl }: { readonly data: HeaderProps, 
                         // color={
                         //     index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
                         // }
-                        // color="secondary"
+                        color="foreground"
                         className="w-full"
                         href={link.adres}
                         size="lg"
