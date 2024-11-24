@@ -24,7 +24,10 @@ export default function Logo({
     // const src = await getStrapiURL() + imageURL;
     useEffect(() => {
         const fetchImage = async () => {
-          const imageSrc = await getPublicUrl(href) + imageURL;
+          const imageSrc = await getPublicUrl(imageURL);
+          console.log("Logo imageUrl: " + imageURL);
+          console.log("########################################")
+          console.log("Logo imageSrc: " + imageSrc);
           setSrc(imageSrc);
         };
     
@@ -35,7 +38,7 @@ export default function Logo({
 
     return (
         <Link href={href}>
-            <StrapiImage src={imageURL} alt={alt} width={width} height={height}/>
+            <StrapiImage src={src} alt={alt} width={width} height={height}/>
         </Link>
     )
 }
