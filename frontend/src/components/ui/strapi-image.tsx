@@ -25,6 +25,7 @@ export function StrapiImage({
         const fetchImage = async () => {
           // const imageSrc = await getStrapiMedia(src);
           const imageSrc = await getPublicUrl(src);
+          console.log("Image src: " + imageSrc)
           setURL(imageSrc);
         };
     
