@@ -5,7 +5,7 @@ import Link from "next/link";
 import { StrapiImage } from "./strapi-image";
 import { ImageProps } from "../../types/image";
 import { LogoProps } from "../../types/logo"
-import { getStrapiURL } from "../../lib/utils";
+import { getPublicUrl } from "../../lib/utils";
 import { Spinner } from "@nextui-org/react";
 
 
@@ -24,7 +24,7 @@ export default function Logo({
     // const src = await getStrapiURL() + imageURL;
     useEffect(() => {
         const fetchImage = async () => {
-          const imageSrc = await getStrapiURL() + imageURL;
+          const imageSrc = await getPublicUrl(href) + imageURL;
           setSrc(imageSrc);
         };
     

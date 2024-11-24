@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button} from "@nextui-org/react";
 import { HeaderProps } from "../../../types/header";
-import { getStrapiURL } from "../../../lib/utils";
+// import { getStrapiURL } from "../../../lib/utils";
 import Logo  from "../logo";
 import { StrapiImage } from "../strapi-image";
 
