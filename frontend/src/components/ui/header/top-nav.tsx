@@ -61,7 +61,7 @@ export default function TopNav({ data, logoUrl }: { readonly data: HeaderProps, 
                 <NavbarBrand>
                 {/* <AcmeLogo /> */}
                 {/* <p className="font-bold text-inherit">ACME</p> */}
-                <Logo href={logo.adres} imageURL={logoUrl} alt={logo.zdjecie.alternativeText} width={50} height={50}/>
+                <Logo href={logo.adres} imageURL={"https://cswuhyugfqkxtbycmfev.supabase.co/storage/v1/object/public/fruitify/uploads/LogoWhite.svg-c04306ce160f8384f85d772e71cdc6d3.svg"} alt={logo.zdjecie.alternativeText} width={50} height={50}/>
 
                 </NavbarBrand>
             </NavbarContent>
