@@ -13,6 +13,7 @@ export default function TopNav({ data }: Readonly<HeaderProps>) {
     const { logo, linki, cta } = data;
 
     // const logoURL = getStrapiURL() + logo.image.url; 
+    console.log("Top nav: " + logo.zdjecie.url);
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
