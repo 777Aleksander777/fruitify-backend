@@ -59,6 +59,7 @@ export default async function RootLayout({
   // console.dir(data, { depth: null });
 
   const { naglowek, stopka } = data;
+  console.log("Layout: " + naglowek[0]?.logo?.zdjecie?.url);
 
   return (
     <html lang="en" className="ligth">
