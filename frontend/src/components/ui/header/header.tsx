@@ -42,6 +42,6 @@ export async function Header({ data }: Readonly<HeaderProps>) {
     
     console.log("Header: " + data.logo.zdjecie.url);
     return (
-        <TopNav data={data}/>
+        <TopNav data={data} logoUrl={data.logo.zdjecie.url}/>
     )
 }

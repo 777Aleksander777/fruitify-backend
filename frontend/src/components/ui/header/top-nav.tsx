@@ -2,18 +2,52 @@
 
 import React, { useEffect, useState } from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button} from "@nextui-org/react";
-import { HeaderProps } from "../../../types/header";
+// import { HeaderProps } from "../../../types/header";
 // import { getStrapiURL } from "../../../lib/utils";
 import Logo  from "../logo";
 import { StrapiImage } from "../strapi-image";
 
 
-export default function TopNav({ data }: Readonly<HeaderProps>) {
+interface HeaderProps {
+    logo: {
+        id: number,
+        adres: string,
+        nazwa: string,
+        zdjecie: {
+            id: number,
+            documentId: string,
+            url: string,
+            name: string,
+            alternativeText: string,
+            width: number,
+            height: number,
+        },
+    },
+    linki: [
+        {
+            id: number,
+            adres: string,
+            nazwa: string,
+            jestZewnetrzny: boolean,
+        },
+    ],
+    cta: [
+        {
+            id: number,
+            adres: string,
+            nazwa: string,
+            jestZewnetrzny: boolean,
+        },
+    ],
+}
+
+export default function TopNav({ data, logoUrl }: { readonly data: HeaderProps, logoUrl: string}) {
 
     const { logo, linki, cta } = data;
 
     // const logoURL = getStrapiURL() + logo.image.url; 
     console.log("Top nav: " + logo.zdjecie.url);
+    console.log("Top nav 2: " + logoUrl);
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -27,7 +61,7 @@ export default function TopNav({ data }: Readonly<HeaderProps>) {
                 <NavbarBrand>
                 {/* <AcmeLogo /> */}
                 {/* <p className="font-bold text-inherit">ACME</p> */}
-                <Logo href={logo.adres} imageURL={logo.zdjecie.url} alt={logo.zdjecie.alternativeText} width={50} height={50}/>
+                <Logo href={logo.adres} imageURL={logoUrl} alt={logo.zdjecie.alternativeText} width={50} height={50}/>
 
                 </NavbarBrand>
             </NavbarContent>
