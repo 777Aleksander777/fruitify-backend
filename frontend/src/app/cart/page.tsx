@@ -260,6 +260,10 @@ export default function Cart() {
                     setIsPostalCodeStart(true);
                     setIsAddressStart(true);
                     setIsBlikCodeStart(true); 
+                    setPhone(0);
+                    setMiasto("");
+                    setKodPocztowy("");
+                    setAdres("");
                     setPrice(0); 
                     onClose(); 
                   }}>
