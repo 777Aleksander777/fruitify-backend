@@ -22,15 +22,15 @@ const nextConfig: NextConfig = {
     );
     return config;
   },
-  // images: {
-  //   remotePatterns: [
-  //     {
-  //       protocol: 'https',
-  //       hostname: 'fruitify-backend.onrender.com',
-  //       // port: '10000',
-  //     },
-  //   ],
-  // },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cswuhyugfqkxtbycmfev.supabase.co',
+        pathname: '/storage/v1/object/public/fruitify/uploads/**', // Możesz użyć wildcards
+      },
+    ],
+  },
   
 };
 
