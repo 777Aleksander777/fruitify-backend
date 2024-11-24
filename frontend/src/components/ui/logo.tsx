@@ -35,7 +35,7 @@ export default function Logo({
 
     return (
         <Link href={href}>
-            <StrapiImage src={src} alt={alt} width={width} height={height}/>
+            <StrapiImage src={imageURL} alt={alt} width={width} height={height}/>
         </Link>
     )
 }
