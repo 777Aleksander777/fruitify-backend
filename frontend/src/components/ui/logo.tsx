@@ -19,22 +19,22 @@ export default function Logo({
     height = 36,
 }: Readonly<LogoProps>) {
 
-    const [src, setSrc] = useState<string | null>(null);
+    // const [src, setSrc] = useState<string | null>(null);
 
     // const src = await getStrapiURL() + imageURL;
-    useEffect(() => {
-        const fetchImage = async () => {
-          const imageSrc = await getPublicUrl(imageURL);
-          console.log("Logo imageUrl: " + imageURL);
-          console.log("########################################")
-          console.log("Logo imageSrc: " + imageSrc);
-          setSrc(imageSrc);
-        };
+    // useEffect(() => {
+    //     const fetchImage = async () => {
+    //       const imageSrc = await getPublicUrl(imageURL);
+    //       console.log("Logo imageUrl: " + imageURL);
+    //       console.log("########################################")
+    //       console.log("Logo imageSrc: " + imageSrc);
+    //       setSrc(imageSrc);
+    //     };
     
-        fetchImage();
-      }, [imageURL]);
+    //     fetchImage();
+    //   }, [imageURL]);
     
-      if (!src) return <Spinner color="success"/>; // Obsługa ładowania
+    //   if (!src) return <Spinner color="success"/>; // Obsługa ładowania
 
     return (
         <Link href={href}>

@@ -18,21 +18,21 @@ export function StrapiImage({
     // const imageURL = getStrapiMedia(src);
     // if(!imageURL) return null;
 
-    const [url, setURL] = useState<string | null>(null);
+    // const [url, setURL] = useState<string | null>(null);
 
     // const src = await getStrapiURL() + imageURL;
-    useEffect(() => {
-        const fetchImage = async () => {
-          // const imageSrc = await getStrapiMedia(src);
-          const imageSrc = await getPublicUrl(src);
-          console.log("Image src: " + src)
-          setURL(imageSrc);
-        };
+    // useEffect(() => {
+    //     const fetchImage = async () => {
+    //       // const imageSrc = await getStrapiMedia(src);
+    //       const imageSrc = await getPublicUrl(src);
+    //       console.log("Image src: " + src)
+    //       setURL(imageSrc);
+    //     };
     
-        fetchImage();
-      }, [src]);
+    //     fetchImage();
+    //   }, [src]);
     
-      if (!url) return <Spinner color="success"/> // Obsługa ładowania
+      // if (!url) return <Spinner color="success"/> // Obsługa ładowania
 
     
 

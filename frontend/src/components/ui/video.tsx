@@ -19,22 +19,22 @@ export function StrapiVideo({
     // const imageURL = getStrapiMedia(src);
     // if(!imageURL) return null;
 
-    const [url, setURL] = useState<string | null>(null);
+    // const [url, setURL] = useState<string | null>(null);
 
-    // const src = await getStrapiURL() + imageURL;
-    useEffect(() => {
-        const fetchImage = async () => {
-          const mediaSrc = await getPublicUrl(src);
-          setURL(mediaSrc);
-          console.log(src);
-          console.log('####################')
-          console.log(mediaSrc);
-        };
+    // // const src = await getStrapiURL() + imageURL;
+    // useEffect(() => {
+    //     const fetchImage = async () => {
+    //       const mediaSrc = await getPublicUrl(src);
+    //       setURL(mediaSrc);
+    //       console.log(src);
+    //       console.log('####################')
+    //       console.log(mediaSrc);
+    //     };
         
-        fetchImage();
-    }, [src]);
+    //     fetchImage();
+    // }, [src]);
     
-      if (!url) return <Spinner color="success"/> // Obsługa ładowania
+    //   if (!url) return <Spinner color="success"/> // Obsługa ładowania
 
     
 
