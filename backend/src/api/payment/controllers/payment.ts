@@ -30,9 +30,9 @@ export default factories.createCoreController('api::payment.payment', ({ strapi 
                 payment_method_types: [
                     'blik',
                 ],
-                metadata: {
-                    products: productsMetadata
-                }
+                // metadata: {
+                //     products: productsMetadata
+                // }
             });
 
             ctx.send({ clientSecret: payment.client_secret })
