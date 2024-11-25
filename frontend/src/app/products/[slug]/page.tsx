@@ -109,14 +109,21 @@ export default function Product() {
                   label="Ilość" 
                   placeholder={`. . .`}
                   defaultValue="1"
-                  onClick={(e) => e.preventDefault()}
+                  // onClick={(e) => {e.preventDefault(); e.stopPropagation()}}
+                  // onFocusChange={(focus) => {console.log("Is editing: " + focus); setIsEditing(focus)}}
                   onChange={(e) => setQuantity(Number(e.target.value))}
                 />
                 <Button 
                   className="w-[25px] h-full rounded-r-[10px] bg-primary-foreground text-primary" 
                   radius="none" 
+                  onTouchEnd={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleAddProduct(`${slug}`);
+                  }}
                   onClick={(e) => {
                     e.preventDefault();
+                    e.stopPropagation();
                     // window.location.href='/cart'
                     handleAddProduct(`${productData.slug}`);
                   }}
