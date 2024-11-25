@@ -15,6 +15,7 @@ type Slug = {
 export default function ProductCard({ slug, quantity } : Readonly<Slug> ) {
 
     // as={Link} href={`products/${slug}`}
+    const [isEditing, setIsEditing] = useState<boolean>(false);
 
     const [product, setProduct] = useState<ProductProps | null>(null);
     const [productQuantity, setProductQuantity] = useState<number>(quantity);
@@ -66,7 +67,9 @@ export default function ProductCard({ slug, quantity } : Readonly<Slug> ) {
 
             <div onClick={(e) => {
             e.preventDefault();
-            window.open(`products/${slug}`)
+            if(!isEditing){
+                window.open(`products/${slug}`);
+            }
         }} className="absolute top-0 left-0 z-1 w-full h-[350px] cursor-pointer">
             {
                 product?.zdjecie? <StrapiImage src={product?.zdjecie.url} alt={product?.zdjecie.alternativeText || ''} width={300} height={300}/> : <></>
@@ -112,6 +115,7 @@ export default function ProductCard({ slug, quantity } : Readonly<Slug> ) {
                         max={100}
                         value={String(productQuantity)}
                         onClick={(e) => {e.preventDefault(); e.stopPropagation()}}
+                        onFocusChange={(focus) => {setIsEditing(focus)}}
                         onValueChange={(e) => {
                             if(Number(e) == null || Number(e) <= 0){
                                 setProductQuantity(1);
