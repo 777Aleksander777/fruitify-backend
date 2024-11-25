@@ -60,6 +60,7 @@ export default function Cart() {
         },
         body: JSON.stringify({
           price: totalPrice + 15,
+          items: getProductsFromLocalStorage(),
         })
       })
 
