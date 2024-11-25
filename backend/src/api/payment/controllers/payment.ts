@@ -32,7 +32,8 @@ export default factories.createCoreController('api::payment.payment', ({ strapi 
                 ],
                 metadata: {
                     products: productsMetadata
-                }
+                },
+                receipt_email: "aleksanderb787@gmail.com"
             });
 
             ctx.send({ clientSecret: payment.client_secret })
