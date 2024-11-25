@@ -119,7 +119,7 @@ export default function Product() {
                   onTouchEnd={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    handleAddProduct(`${slug}`);
+                    handleAddProduct(`${productData.slug}`);
                   }}
                   onClick={(e) => {
                     e.preventDefault();
