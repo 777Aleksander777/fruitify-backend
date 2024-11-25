@@ -66,6 +66,7 @@ export default function ProductCard({ slug, quantity } : Readonly<Slug> ) {
         className="bg-transparent w-[300px] h-[475px] relative">
 
             <div onClick={(e) => {
+                e.stopPropagation();
             e.preventDefault();
             if(!isEditing){
                 window.open(`products/${slug}`);
@@ -77,18 +78,12 @@ export default function ProductCard({ slug, quantity } : Readonly<Slug> ) {
             </div>
             <div className="z-10 w-full h-[225px] bg-success absolute bottom-0 left-0 rounded-b-[20px] rounded-t-[50px] drop-shadow-[0_-5px_12px_rgba(0,191,99,1)]">
                 <div className="w-full h-full py-8 gap-4 flex flex-col justify-between align-center items-center">
-                    <h4 onClick={(e) => {
-                            e.preventDefault();
-                            window.open(`products/${slug}`)
-                        }}  
+                    <h4  
                         className="text-xl cursor-pointer"
                     >
                         {product?.tytul}
                     </h4>
-                    <p onClick={(e) => {
-                            e.preventDefault();
-                            window.open(`products/${slug}`)
-                        }} 
+                    <p 
                         className="cursor-pointer"
                     >
                         {product?.cena} zł/kg
@@ -115,7 +110,7 @@ export default function ProductCard({ slug, quantity } : Readonly<Slug> ) {
                         max={100}
                         value={String(productQuantity)}
                         onClick={(e) => {e.preventDefault(); e.stopPropagation()}}
-                        onFocusChange={(focus) => {setIsEditing(focus)}}
+                        onFocusChange={(focus) => {console.log("Is editing: " + focus); setIsEditing(focus)}}
                         onValueChange={(e) => {
                             if(Number(e) == null || Number(e) <= 0){
                                 setProductQuantity(1);
@@ -129,11 +124,16 @@ export default function ProductCard({ slug, quantity } : Readonly<Slug> ) {
                         <Button 
                           className="w-[25px] h-full rounded-r-[10px] bg-primary-foreground text-primary" 
                           radius="none" 
+                          onTouchEnd={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              handleAddProduct(`${slug}`);
+                            }}
                           onClick={(e) => {
                             e.preventDefault();
-                            e.stopPropagation()
+                            e.stopPropagation();
                             handleAddProduct(`${slug}`);
-                          }}
+                        }}
                         >
                             +
                         </Button>
