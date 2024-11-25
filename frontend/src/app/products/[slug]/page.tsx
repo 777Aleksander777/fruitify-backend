@@ -109,6 +109,7 @@ export default function Product() {
                   label="Ilość" 
                   placeholder={`. . .`}
                   defaultValue="1"
+                  onClick={(e) => e.preventDefault()}
                   onChange={(e) => setQuantity(Number(e.target.value))}
                 />
                 <Button 

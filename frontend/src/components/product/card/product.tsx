@@ -109,6 +109,7 @@ export default function ProductCard({ slug, quantity } : Readonly<Slug> ) {
                         min={1}
                         max={100}
                         value={String(productQuantity)}
+                        onClick={(e) => {e.preventDefault()}}
                         onValueChange={(e) => {
                             if(Number(e) == null || Number(e) <= 0){
                                 setProductQuantity(1);
