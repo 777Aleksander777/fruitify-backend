@@ -57,10 +57,12 @@ export default function ProductCard({ slug, quantity } : Readonly<Slug> ) {
     );
 
     return (
-        <Card onClick={(e) => {
-            e.preventDefault();
-            window.open(`products/${slug}`)
-        }}  className="bg-transparent w-[300px] h-[475px] relative">
+        <Card 
+        // onClick={(e) => {
+        //     e.preventDefault();
+        //     window.open(`products/${slug}`)
+        // }}  
+        className="bg-transparent w-[300px] h-[475px] relative">
 
             <div onClick={(e) => {
             e.preventDefault();
@@ -109,7 +111,7 @@ export default function ProductCard({ slug, quantity } : Readonly<Slug> ) {
                         min={1}
                         max={100}
                         value={String(productQuantity)}
-                        onClick={(e) => {e.preventDefault()}}
+                        onClick={(e) => {e.preventDefault(); e.stopPropagation()}}
                         onValueChange={(e) => {
                             if(Number(e) == null || Number(e) <= 0){
                                 setProductQuantity(1);
@@ -125,6 +127,7 @@ export default function ProductCard({ slug, quantity } : Readonly<Slug> ) {
                           radius="none" 
                           onClick={(e) => {
                             e.preventDefault();
+                            e.stopPropagation()
                             handleAddProduct(`${slug}`);
                           }}
                         >
