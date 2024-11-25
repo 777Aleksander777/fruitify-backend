@@ -187,6 +187,17 @@ export default function Cart() {
         setIsPostalCodeStart(true);
         setIsAddressStart(true);
         setIsBlikCodeStart(true);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/contact/sendMail`, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+              email: email,
+              title: "Dokonano zakupu na Fruitify.pl!",
+              message:`Numer transakcji: ${cSecret}. Kwota transakcji: ${price} zł. Adres dostawy: ${kodPocztowy} ${adres}. Numer telfonu: ${phone}. Adres Emial: ${email}. Zamówione produkty są w szczegółach transakcji na stripe.`,
+          })
+        });
         alert('Zapłacono!');
         removeProduct('all');
         window.location.reload();
