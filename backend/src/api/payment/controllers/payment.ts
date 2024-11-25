@@ -14,7 +14,7 @@ export default factories.createCoreController('api::payment.payment', ({ strapi 
     async intent(ctx) {
 
         try {
-            const { price, items } = ctx.request.body;
+            const { price, items, phone, email } = ctx.request.body;
 
             const productsMetadata = JSON.stringify(
                 items.map((item: { name: string; price: number; quantity: number }) => ({
@@ -31,9 +31,10 @@ export default factories.createCoreController('api::payment.payment', ({ strapi 
                     'blik',
                 ],
                 metadata: {
-                    products: productsMetadata
+                    products: productsMetadata,
+                    telefon: JSON.stringify(phone)
                 },
-                receipt_email: "aleksanderb787@gmail.com"
+                receipt_email: email
             });
 
             ctx.send({ clientSecret: payment.client_secret })

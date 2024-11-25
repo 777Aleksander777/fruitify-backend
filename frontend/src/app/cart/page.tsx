@@ -12,6 +12,7 @@ import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDis
 
 export default function Cart() {
 
+  const [isEmailStart, setIsEmailStart] = useState<boolean>(true);
   const [isPhoneStart, setIsPhoneStart] = useState<boolean>(true);
   const [isCityStart, setIsCityStart] = useState<boolean>(true);
   const [isPostalCodeStart, setIsPostalCodeStart] = useState<boolean>(true);
@@ -22,6 +23,7 @@ export default function Cart() {
 
   const [products, setProducts] = useState<CartProps[]>([]);
   
+  const [email, setEmail] = useState<string>("");
   const [phone, setPhone] = useState<number>(0);
   const [miasto, setMiasto] = useState<string>("");
   const [kodPocztowy, setKodPocztowy] = useState<string>("");
@@ -61,11 +63,15 @@ export default function Cart() {
         body: JSON.stringify({
           price: totalPrice + 15,
           items: getProductsFromLocalStorage(),
+          phone: phone,
+          email: email
         })
       })
 
       if(!stripeIntend.ok) {
         const error = await stripeIntend.json();
+        setIsEmailStart(true);
+        setIsPhoneStart(true);
         setIsCityStart(true);
         setIsPostalCodeStart(true);
         setIsAddressStart(true);
@@ -75,13 +81,11 @@ export default function Cart() {
       }
       // setIsPaying(true);
       const { clientSecret } = await stripeIntend.json();
-      console.log("##########################");
-      console.log(clientSecret);
-      console.log("##########################");
       setCSecret(clientSecret);
       // console.log(cSecret);
       // handelBlik();
     } catch (error) {
+      setIsEmailStart(true);
       setIsPhoneStart(true);
       setIsCityStart(true);
         setIsPostalCodeStart(true);
@@ -95,6 +99,7 @@ export default function Cart() {
   const handelBlik = async () => {
     
     // e.preventDefault();
+    setIsEmailStart(false);
     setIsPhoneStart(false);
     setIsCityStart(false);
     setIsPostalCodeStart(false);
@@ -108,6 +113,8 @@ export default function Cart() {
     }
     else if (!cSecret) {
       alert("Blik error");
+      setIsEmailStart(true);
+      setIsPhoneStart(true);
       setIsCityStart(true);
       setIsPostalCodeStart(true);
       setIsAddressStart(true);
@@ -138,7 +145,8 @@ export default function Cart() {
         payment_method: {
           blik: {},
           billing_details: {
-            phone:`+48${phone}`
+            phone:`+48${phone}`,
+            email: email,
           }
         },
         payment_method_options: {
@@ -162,7 +170,9 @@ export default function Cart() {
 
       if (error) {
         console.error(error.message);
+        setIsEmailStart(true);
         setIsCityStart(true);
+        setIsPhoneStart(true);
         setIsPostalCodeStart(true);
         setIsAddressStart(true);
         setIsBlikCodeStart(true);
@@ -171,12 +181,14 @@ export default function Cart() {
         setIsPaying(false);
         setCSecret(null);
         setPrice(0);
+        setIsEmailStart(true);
+        setIsPhoneStart(true);
         setIsCityStart(true);
         setIsPostalCodeStart(true);
         setIsAddressStart(true);
         setIsBlikCodeStart(true);
+        alert('Zapłacono!');
         removeProduct('all');
-        // alert('Zapłacono!');
         window.location.reload();
       }
   };
@@ -219,8 +231,18 @@ export default function Cart() {
                     type='tel'
                     isRequired
                     isInvalid={!(phone != 0 || isPhoneStart)}
-                    onValueChange={(e) => { setIsPhoneStart(false); console.log("Phone number: " + phone); setPhone(Number(e))}}
+                    onValueChange={(e) => { setIsPhoneStart(false); setPhone(Number(e))}}
                     />
+                  <Input
+                    autoFocus
+                    label="Email"
+                    placeholder="Wpisz swój adres email"
+                    variant="bordered"
+                    type='email'
+                    isRequired
+                    isInvalid={!(email != "" || isEmailStart)}
+                    onValueChange={(e) => { setIsEmailStart(false); setEmail(e)}}
+                  />
                   <Input
                     label="Miasto"
                     placeholder="Wpisz miasto"
