@@ -25,14 +25,14 @@ export default factories.createCoreController('api::payment.payment', ({ strapi 
               );
 
             const payment = await stripe.paymentIntents.create({
-                amount: price*100,
+                amount: Math.round(price*100),
                 currency: 'PLN',
                 payment_method_types: [
                     'blik',
                 ],
-                // metadata: {
-                //     products: productsMetadata
-                // }
+                metadata: {
+                    products: productsMetadata
+                }
             });
 
             ctx.send({ clientSecret: payment.client_secret })
