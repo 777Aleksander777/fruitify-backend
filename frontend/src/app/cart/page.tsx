@@ -102,6 +102,8 @@ export default function Cart() {
   
   const handelBlik = async () => {
     
+    handlePayment();
+
     // e.preventDefault();
     setIsEmailStart(false);
     setIsPhoneStart(false);
@@ -215,7 +217,7 @@ export default function Cart() {
         >
           <Button isDisabled={products.length == 0} className='mb-24 w-[250px] bg-primary-foreground text-primary' onPress={() => {
             onOpen(); 
-            handlePayment(); 
+            // handlePayment(); 
             }} >Do kasy</Button>
       <Modal 
         isOpen={isOpen} 
