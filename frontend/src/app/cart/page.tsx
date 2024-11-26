@@ -61,7 +61,7 @@ export default function Cart() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          price: totalPrice + 15,
+          price: totalPrice,
           items: getProductsFromLocalStorage(),
           phone: phone,
           email: email
@@ -220,7 +220,7 @@ export default function Cart() {
       >
         <ModalContent>
           {(onClose) => {
-            if(price < 50) {
+            if(false) {
               return(
                 <>
                   <ModalHeader className="flex flex-col gap-1">Za mało produktów</ModalHeader>
