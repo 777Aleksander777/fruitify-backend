@@ -51,7 +51,11 @@ export default function Cart() {
         return acc + (product.price * product.quantity);
       }, 0);
       setPrice(totalPrice);
-      console.log(price);
+      // console.log(price);
+
+      console.log("Client email: " + email)
+      console.log("########################################");
+      console.log("Client type emial: " + typeof(email))
       
       // const url = new URL('payment/intent', process.env.NEXT_PUBLIC_BACKEND_URL);
 

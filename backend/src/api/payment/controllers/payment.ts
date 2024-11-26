@@ -16,6 +16,10 @@ export default factories.createCoreController('api::payment.payment', ({ strapi 
         try {
             const { price, items, phone, email } = ctx.request.body;
 
+            console.log("Backend email: " + email);
+            console.log("################################3";
+            console.log("Backend email type: " + typeof(email));
+
             const productsMetadata = JSON.stringify(
                 items.map((item: { name: string; price: number; quantity: number }) => ({
                     nazwa: item.name,
@@ -34,7 +38,7 @@ export default factories.createCoreController('api::payment.payment', ({ strapi 
                     products: productsMetadata,
                     telefon: JSON.stringify(phone)
                 },
-                receipt_email: email
+                receipt_email: String(email)
             });
 
             ctx.send({ clientSecret: payment.client_secret })
