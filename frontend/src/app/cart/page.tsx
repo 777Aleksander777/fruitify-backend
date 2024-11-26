@@ -65,7 +65,7 @@ export default function Cart() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          price: totalPrice,
+          price: totalPrice + 15,
           items: getProductsFromLocalStorage(),
           phone: phone,
           email: email
@@ -204,7 +204,7 @@ export default function Cart() {
           body: JSON.stringify({
               email: email,
               title: "Dokonano zakupu na Fruitify.pl!",
-              message:`Numer transakcji: ${secret}. Kwota transakcji: ${price} zł. Adres dostawy: ${kodPocztowy} ${adres}. Numer telfonu: ${phone}. Adres Emial: ${email}. Zamówione produkty są w szczegółach transakcji na stripe.`,
+              message:`Numer transakcji: ${secret}. Kwota transakcji z dostawą (15 zł): ${price + 15} zł. Adres dostawy: ${kodPocztowy} ${adres}. Numer telfonu: ${phone}. Adres Emial: ${email}. Zamówione produkty są w szczegółach transakcji na stripe.`,
           })
         });
         alert('Zapłacono!');
@@ -229,7 +229,7 @@ export default function Cart() {
       >
         <ModalContent>
           {(onClose) => {
-            if(false) {
+            if(price < 50) {
               return(
                 <>
                   <ModalHeader className="flex flex-col gap-1">Za mało produktów</ModalHeader>
@@ -264,8 +264,8 @@ export default function Cart() {
                     onValueChange={(e) => { setIsEmailStart(false); setEmail(e)}}
                   />
                   <Input
-                    label="Miasto"
-                    placeholder="Wpisz miasto"
+                    label="Miejscowość"
+                    placeholder="Wpisz miejscowość"
                     type="text"
                     variant="bordered"
                     isRequired
