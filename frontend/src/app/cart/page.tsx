@@ -49,7 +49,7 @@ export default function Cart() {
       return acc + (product.price * product.quantity);
     }, 0);
     setPrice(totalPrice);
-    console.log("totap price: " + price);
+    console.log("totap price: " + totalPrice);
     console.log("price: " + price);
   }
 
@@ -60,6 +60,8 @@ export default function Cart() {
       console.log("Client email: " + email)
       console.log("########################################");
       console.log("Client type emial: " + typeof(email))
+
+      console.log("handle payment price: " + price);
       
       // const url = new URL('payment/intent', process.env.NEXT_PUBLIC_BACKEND_URL);
 
