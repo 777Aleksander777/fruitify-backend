@@ -44,7 +44,7 @@ export default function Cart() {
     setProducts(getProductsFromLocalStorage());
   };
 
-  const countPrice = () => {
+  const countPrice = async () => {
     const totalPrice = getProductsFromLocalStorage()?.reduce((acc, product) => {
       return acc + (product.price * product.quantity);
     }, 0);
