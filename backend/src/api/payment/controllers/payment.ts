@@ -17,7 +17,7 @@ export default factories.createCoreController('api::payment.payment', ({ strapi 
             const { price, items, phone, email } = ctx.request.body;
 
             console.log("Backend email: " + email);
-            console.log("################################3";
+            console.log("################################");
             console.log("Backend email type: " + typeof(email));
 
             const productsMetadata = JSON.stringify(
