@@ -18,7 +18,7 @@ export default function Cart() {
   const [isPostalCodeStart, setIsPostalCodeStart] = useState<boolean>(true);
   const [isAddressStart, setIsAddressStart] = useState<boolean>(true);
   const [isBlikCodeStart, setIsBlikCodeStart] = useState<boolean>(true);
-  const [cSecret, setCSecret] = useState<string | null>(null);
+  // const [cSecret, setCSecret] = useState<string | null>(null);
   const [blikCode, setBlikCode] = useState<string>('');
 
   const [products, setProducts] = useState<CartProps[]>([]);
@@ -82,10 +82,12 @@ export default function Cart() {
         setIsBlikCodeStart(true);
         setIsPaying(false);
         throw new Error(error.message || 'Failed to create Stripe intent');
+        return null;
       }
       // setIsPaying(true);
       const { clientSecret } = await stripeIntend.json();
-      setCSecret(clientSecret);
+      // setCSecret(clientSecret);
+      return clientSecret;
       // console.log(cSecret);
       // handelBlik();
     } catch (error) {
@@ -97,12 +99,13 @@ export default function Cart() {
       setIsBlikCodeStart(true);
       setIsPaying(false);
       console.error('Error: ', error);
+      return null;
     }
   };
   
   const handelBlik = async () => {
     
-    handlePayment();
+    const secret = await handlePayment();
 
     // e.preventDefault();
     setIsEmailStart(false);
@@ -112,12 +115,12 @@ export default function Cart() {
     setIsAddressStart(false);
     setIsBlikCodeStart(false);
     
-    if(!( miasto!="" && kodPocztowy!="" && adres!="" && blikCode!="")) {
+    if(!( miasto!="" && kodPocztowy!="" && adres!="" && blikCode!="" && email!="" && phone!=0)) {
       setIsPaying(false);
       // alert("Wypełnij formularz!")
       return null;
     }
-    else if (!cSecret) {
+    else if (!secret) {
       alert("Blik error");
       setIsEmailStart(true);
       setIsPhoneStart(true);
@@ -147,7 +150,7 @@ export default function Cart() {
           //   // },
           // });
 
-      const { error } = await stripe!.confirmBlikPayment(cSecret, {
+      const { error } = await stripe!.confirmBlikPayment(secret, {
         payment_method: {
           blik: {},
           billing_details: {
@@ -167,7 +170,7 @@ export default function Cart() {
             country: 'Poland',
             line1: adres,
           },
-          tracking_number: cSecret || "Tracking number null",
+          tracking_number: secret || "Tracking number null",
           name: 'Dostawa',
         },
         // receipt_email: 'aleksanderb787@gmail.com',
@@ -185,7 +188,7 @@ export default function Cart() {
         setIsPaying(false);
       } else {
         setIsPaying(false);
-        setCSecret(null);
+        // setCSecret(null);
         setPrice(0);
         setIsEmailStart(true);
         setIsPhoneStart(true);
@@ -201,7 +204,7 @@ export default function Cart() {
           body: JSON.stringify({
               email: email,
               title: "Dokonano zakupu na Fruitify.pl!",
-              message:`Numer transakcji: ${cSecret}. Kwota transakcji: ${price} zł. Adres dostawy: ${kodPocztowy} ${adres}. Numer telfonu: ${phone}. Adres Emial: ${email}. Zamówione produkty są w szczegółach transakcji na stripe.`,
+              message:`Numer transakcji: ${secret}. Kwota transakcji: ${price} zł. Adres dostawy: ${kodPocztowy} ${adres}. Numer telfonu: ${phone}. Adres Emial: ${email}. Zamówione produkty są w szczegółach transakcji na stripe.`,
           })
         });
         alert('Zapłacono!');
