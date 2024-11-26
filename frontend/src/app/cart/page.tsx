@@ -44,14 +44,18 @@ export default function Cart() {
     setProducts(getProductsFromLocalStorage());
   };
 
+  const countPrice = () => {
+    const totalPrice = getProductsFromLocalStorage()?.reduce((acc, product) => {
+      return acc + (product.price * product.quantity);
+    }, 0);
+    setPrice(totalPrice);
+    console.log("totap price: " + price);
+    console.log("price: " + price);
+  }
+
   const handlePayment = async () => {
 
     try {
-      const totalPrice = getProductsFromLocalStorage()?.reduce((acc, product) => {
-        return acc + (product.price * product.quantity);
-      }, 0);
-      setPrice(totalPrice);
-      // console.log(price);
 
       console.log("Client email: " + email)
       console.log("########################################");
@@ -65,7 +69,7 @@ export default function Cart() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          price: totalPrice + 15,
+          price: price + 15,
           items: getProductsFromLocalStorage(),
           phone: phone,
           email: email
@@ -220,7 +224,7 @@ export default function Cart() {
         >
           <Button isDisabled={products.length == 0} className='mb-24 w-[250px] bg-primary-foreground text-primary' onPress={() => {
             onOpen(); 
-            // handlePayment(); 
+            countPrice(); 
             }} >Do kasy</Button>
       <Modal 
         isOpen={isOpen} 
