@@ -3,9 +3,11 @@
 import { ProductProps } from "../../../types/product";
 import { Button, Input, Card, Spinner, Skeleton } from "@nextui-org/react";
 import { StrapiImage } from "../../ui/strapi-image";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { getProductData } from "../../../data/loader";
 import { addOrUpdateProduct, getProductsFromLocalStorage } from "../../../lib/localStorage";
+import UserMessage from "@/components/userMessage";
+import { title } from "process";
 
 type Slug = {
     slug: string,
@@ -20,11 +22,20 @@ export default function ProductCard({ slug, quantity } : Readonly<Slug> ) {
     const [product, setProduct] = useState<ProductProps | null>(null);
     const [productQuantity, setProductQuantity] = useState<number>(quantity);
 
+    const [addProduct, setAddProduct] = useState<boolean>(false);
+
     const handleAddProduct = (name: string) => {
         if (!name.trim() || productQuantity <= 0 || product == null) return;
         addOrUpdateProduct(name, productQuantity, product.cena);
         console.dir( getProductsFromLocalStorage(), { depth: null })
+        setAddProduct(true);
+        // <UserMessage title="Dodano do koszyka!" text={`Produkt: ${product.tytul} został dodany do koszyka w ilości: ${productQuantity}`}
+        // renderModal();
     };
+
+    function renderModal(productTitle: string) {
+        return <UserMessage title="Dodano do koszyka!" text={`Produkt: ${productTitle} został dodany do koszyka w ilości: ${productQuantity}`}/>
+    }
 
     useEffect(() => {
         const fetchData = async (slug: string) => {
@@ -109,8 +120,8 @@ export default function ProductCard({ slug, quantity } : Readonly<Slug> ) {
                         min={1}
                         max={100}
                         value={String(productQuantity)}
-                        onClick={(e) => {e.preventDefault(); e.stopPropagation()}}
-                        onFocusChange={(focus) => {console.log("Is editing: " + focus); setIsEditing(focus)}}
+                        onClick={(e) => {setAddProduct(false); e.preventDefault(); e.stopPropagation()}}
+                        onFocusChange={(focus) => {setAddProduct(false); setIsEditing(focus)}}
                         onValueChange={(e) => {
                             if(Number(e) == null || Number(e) <= 0){
                                 setProductQuantity(1);
@@ -122,21 +133,29 @@ export default function ProductCard({ slug, quantity } : Readonly<Slug> ) {
                         }}
                         />
                         <Button 
-                          className="w-[25px] h-full rounded-r-[10px] bg-primary-foreground text-primary" 
+                          className="w-[25px] h-[50px] px-2 rounded-r-[10px] bg-primary-foreground text-primary" 
                           radius="none" 
                           onTouchEnd={(e) => {
+                            //   setAddProduct(false);
                               e.preventDefault();
                               e.stopPropagation();
                               handleAddProduct(`${slug}`);
+                            //   <UserMessage title="Dodano do koszyka!" text={`Produkt: ${product.tytul} został dodany do koszyka w ilości: ${productQuantity}`}/>
                             }}
                           onClick={(e) => {
+                            // setAddProduct(false);
                             e.preventDefault();
                             e.stopPropagation();
                             handleAddProduct(`${slug}`);
+                            // <UserMessage title="Dodano do koszyka!" text={`Produkt: ${product.tytul} został dodany do koszyka w ilości: ${productQuantity}`}/>
                         }}
                         >
-                            +
+                            <div className="w-full h-full m-autoflex flex-col justofu-center align-center items-center">
+                                <p className="text-center">Do</p>
+                                <p className="text-center">koszyka</p>
+                            </div>
                         </Button>
+                        {addProduct?  renderModal(product.tytul) : null}
                     </div>
                 </div>
             </div>    

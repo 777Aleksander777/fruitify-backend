@@ -88,9 +88,9 @@ export default function Cart() {
       setIsEmailStart(true);
       setIsPhoneStart(true);
       setIsCityStart(true);
-        setIsPostalCodeStart(true);
-        setIsAddressStart(true);
-        setIsBlikCodeStart(true);
+      setIsPostalCodeStart(true);
+      setIsAddressStart(true);
+      setIsBlikCodeStart(true);
       setIsPaying(false);
       console.error('Error: ', error);
     }
@@ -321,7 +321,7 @@ export default function Cart() {
             }
         </ModalContent>
       </Modal>
-      <div className='w-full flex lg:flex-row pb-8 flex-col justify-center align-center items-center gap-8'>
+      <div className='w-full flex lg:flex-row flex-wrap pb-8 flex-col justify-center align-center items-center gap-8'>
           {products.length > 0 ? products.map((product) => {
             return (<div key={product.name} className='felx flex-col justify-center align-center items-center gap-8 pb-4  '><ProductCard slug={product.name} quantity={product.quantity}/><div className='w-full flex justify-center align-center items-center'><Button className='my-4' color='danger' onClick={() => handleRemoveProduct(product.name)}>X</Button></div></div>)
           }): <h1>Brak produktów w koszyku ...</h1>}
