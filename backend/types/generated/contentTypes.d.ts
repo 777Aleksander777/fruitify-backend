@@ -514,6 +514,7 @@ export interface ApiPaymentPayment extends Struct.CollectionTypeSchema {
 export interface ApiProduktyProdukty extends Struct.CollectionTypeSchema {
   collectionName: 'produkties';
   info: {
+    description: '';
     displayName: 'Produkty';
     pluralName: 'produkties';
     singularName: 'produkty';
@@ -529,6 +530,9 @@ export interface ApiProduktyProdukty extends Struct.CollectionTypeSchema {
     dostepny: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<true>;
+    jednostka: Schema.Attribute.Enumeration<['SZT', 'KG']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'KG'>;
     kategoria: Schema.Attribute.Enumeration<['OWOCE', 'WARZYWA']> &
       Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

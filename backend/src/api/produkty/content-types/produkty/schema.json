@@ -4,7 +4,8 @@
   "info": {
     "singularName": "produkty",
     "pluralName": "produkties",
-    "displayName": "Produkty"
+    "displayName": "Produkty",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -42,11 +43,20 @@
       "required": true
     },
     "zdjecie": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "jednostka": {
+      "type": "enumeration",
+      "enum": [
+        "SZT",
+        "KG"
+      ],
+      "default": "KG",
       "required": true
     }
   }
