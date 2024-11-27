@@ -139,7 +139,7 @@ export async function getProducts( category: Category): Promise<any> {
                   $eq: `${category}`,
                 },
                 dostepny: {
-                    $eg: true,
+                    $eq: true,
                 }
             },
             populate: {
@@ -153,7 +153,7 @@ export async function getProducts( category: Category): Promise<any> {
         url.search = qs.stringify({
             filters: {
                 dostepny: {
-                    $eg: true,
+                    $eq: true,
                 },
             },
             populate: {
