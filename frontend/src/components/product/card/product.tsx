@@ -97,7 +97,7 @@ export default function ProductCard({ slug, quantity } : Readonly<Slug> ) {
                     <p 
                         className="cursor-pointer"
                     >
-                        {product?.cena} zł/kg
+                        {product?.cena} zł/{product?.jednostka}
                     </p>
                     <div className="w-[250px] h-[50px] flex">
                         <Input 

@@ -5,6 +5,7 @@ export interface ProductProps {
     cena: number,
     dostepny: boolean,
     kategoria: 'OWOCE' | 'WARZYWA',
+    jednostka: 'SZT' | 'KG',
     zdjecie: {
         url: string,
         name: string,

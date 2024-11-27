@@ -9,6 +9,7 @@ import { StrapiImage } from '../../../components/ui/strapi-image';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
+import UserMessage from "@/components/userMessage";
 import { addOrUpdateProduct, getProductsFromLocalStorage } from "../../../lib/localStorage";
 // import { loadStripe } from "@stripe/stripe-js";
 
@@ -17,6 +18,8 @@ import { addOrUpdateProduct, getProductsFromLocalStorage } from "../../../lib/lo
 export default function Product() {
     const { slug } = useParams();
 
+    const [addProduct, setAddProduct] = useState<boolean>(false);
+
     const [productData, setProductData] = useState<ProductProps | null | 'cannot find'>(null);
     const [quantity, setQuantity] = useState(1);
 
@@ -24,7 +27,12 @@ export default function Product() {
       if (!name.trim() || quantity <= 0 || productData === 'cannot find' || productData === null) return;
       addOrUpdateProduct(name, quantity, productData.cena);
       console.dir( getProductsFromLocalStorage(), { depth: null })
+      setAddProduct(true);
     };
+
+    function renderModal(productTitle: string) {
+      return <UserMessage title="Dodano do koszyka!" text={`Produkt: ${productTitle} został dodany do koszyka w ilości: ${quantity}`}/>
+    }
 
     
 
@@ -45,7 +53,7 @@ export default function Product() {
         <Spinner size="lg"/>
       </section>
     );
-    else if(productData === 'cannot find') return <div className="text-danger">Cannot find this product!</div>
+    else if(productData === 'cannot find') return <div className="text-danger">Nie można znaleźć produktu!</div>
 
 
     return (
@@ -70,7 +78,7 @@ export default function Product() {
               <div>
                 <h1>{productData.tytul}</h1>
                 <p className='text-success'>
-                  Cena: {productData.cena} zł/kg
+                  Cena: {productData.cena} zł/{productData.jednostka}
                 </p>
               </div>
               {/* <p>{description}</p> */}
@@ -112,8 +120,10 @@ export default function Product() {
                   // onClick={(e) => {e.preventDefault(); e.stopPropagation()}}
                   // onFocusChange={(focus) => {console.log("Is editing: " + focus); setIsEditing(focus)}}
                   onChange={(e) => setQuantity(Number(e.target.value))}
+                  onClick={(e) => {setAddProduct(false); e.preventDefault(); e.stopPropagation()}}
+                  onFocusChange={(focus) => setAddProduct(false)}
                 />
-                <Button 
+                {/* <Button 
                   className="w-[25px] h-full rounded-r-[10px] bg-primary-foreground text-primary" 
                   radius="none" 
                   onTouchEnd={(e) => {
@@ -130,7 +140,31 @@ export default function Product() {
                   //   variant="ghost"
                 >
                   +
+                </Button> */}
+                <Button 
+                  className="w-[25px] h-[50px] px-2 rounded-r-[10px] bg-primary-foreground text-primary" 
+                  radius="none" 
+                  onTouchEnd={(e) => {
+                //   setAddProduct(false);
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleAddProduct(`${productData.slug}`);
+                    //   <UserMessage title="Dodano do koszyka!" text={`Produkt: ${product.tytul} został dodany do koszyka w ilości: ${productQuantity}`}/>
+                  }}
+                  onClick={(e) => {
+                  // setAddProduct(false);
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleAddProduct(`${productData.slug}`);
+                    // <UserMessage title="Dodano do koszyka!" text={`Produkt: ${product.tytul} został dodany do koszyka w ilości: ${productQuantity}`}/>
+                  }}
+                  >
+                    <div className="w-full h-full m-autoflex flex-col justofu-center align-center items-center">
+                      <p className="text-center">Do</p>
+                      <p className="text-center">koszyka</p>
+                    </div>
                 </Button>
+                {addProduct?  renderModal(productData.tytul) : null}
               </div>
             </div>
         </div>
