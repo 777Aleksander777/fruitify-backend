@@ -137,6 +137,9 @@ export async function getProducts( category: Category): Promise<any> {
             filters: {
                 kategoria: {
                   $eq: `${category}`,
+                },
+                dostepny: {
+                    $eg: true,
                 }
             },
             populate: {
@@ -148,6 +151,11 @@ export async function getProducts( category: Category): Promise<any> {
     } 
     else{
         url.search = qs.stringify({
+            filters: {
+                dostepny: {
+                    $eg: true,
+                },
+            },
             populate: {
                 populate: '*',
                 zdjecie: {
