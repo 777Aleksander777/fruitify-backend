@@ -57,7 +57,7 @@ export default function Product() {
 
 
     return (
-        <div className='max-w-[1536px] w-full min-h-[100vh] h-screen lg:px-8 mx-auto flex flex-nowrap md:flex-row flex-col justify-between align-center items-start'>
+        <div className='max-w-[1536px] w-full md:min-h-screen h-auto lg:px-8 mx-auto flex flex-nowrap md:flex-row flex-col justify-between align-center items-start'>
             
             {/* <form onSubmit={handelBlik}>
                 <Input 
@@ -71,10 +71,10 @@ export default function Product() {
                 />
                 <Button type='submit' onClick={handlePayment}>{'Zapłać teraz'}</Button>
             </form> */}
-            <div className='md:w-[50%] w-[100%] md:h-[100%] h-[500px]  flex '>
+            <div className='md:w-[50%] w-[100%] md:h-screen h-[500px]  flex '>
               <StrapiImage src={productData.zdjecie.url} alt={productData.zdjecie.alternativeText} height={500} width={500}/>
             </div>
-            <div className='md:w-[50%] w-[100%] md:h-[100%] min-h-[500px] h-max px-8 gap-8 lg:shadow-[-20px_0_20px_rgba(0,0,0,0.2)] shadow-[0px_-20px_20px_rgba(0,0,0,0.2)] flex flex-col justify-center align-start items-start'>
+            <div className='md:w-[50%] w-[100%] md:h-screen h-auto px-8 gap-8 py-8 lg:shadow-[-20px_0_20px_rgba(0,0,0,0.2)] shadow-[0px_-20px_20px_rgba(0,0,0,0.2)] flex flex-col justify-center align-start items-start'>
               <div>
                 <h1>{productData.tytul}</h1>
                 <p className='text-success'>
