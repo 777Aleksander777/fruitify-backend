@@ -74,7 +74,7 @@ export default function Product() {
             <div className='md:w-[50%] w-[100%] md:h-[100%] h-[500px]  flex '>
               <StrapiImage src={productData.zdjecie.url} alt={productData.zdjecie.alternativeText} height={500} width={500}/>
             </div>
-            <div className='md:w-[50%] w-[100%] md:h-[100%] min-h-[500px] px-8 gap-8 lg:shadow-[-20px_0_20px_rgba(0,0,0,0.2)] shadow-[0px_-20px_20px_rgba(0,0,0,0.2)] flex flex-col justify-center align-start items-start'>
+            <div className='md:w-[50%] w-[100%] md:h-[100%] min-h-[500px] h-fit px-8 gap-8 lg:shadow-[-20px_0_20px_rgba(0,0,0,0.2)] shadow-[0px_-20px_20px_rgba(0,0,0,0.2)] flex flex-col justify-center align-start items-start'>
               <div>
                 <h1>{productData.tytul}</h1>
                 <p className='text-success'>
