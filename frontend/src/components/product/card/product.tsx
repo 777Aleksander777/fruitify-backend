@@ -16,6 +16,7 @@ type Slug = {
 
 export default function ProductCard({ slug, quantity } : Readonly<Slug> ) {
 
+    const [isScrolling, setIsScrolling] = useState<boolean>(false);
     // as={Link} href={`products/${slug}`}
     const [isEditing, setIsEditing] = useState<boolean>(false);
 
@@ -135,13 +136,23 @@ export default function ProductCard({ slug, quantity } : Readonly<Slug> ) {
                         <Button 
                           className="w-[25px] h-[50px] px-2 rounded-r-[10px] bg-primary-foreground text-primary" 
                           radius="none" 
+                          onTouchStart={(e) => {
+                            setIsScrolling(false);
+                          }}
+                          onTouchMove={(e) => {
+                            setIsScrolling(true);
+                          }}
                           onTouchEnd={(e) => {
                             //   setAddProduct(false);
-                              e.preventDefault();
-                              e.stopPropagation();
-                              handleAddProduct(`${slug}`);
+                            if (!isScrolling){
+                                e.preventDefault();
+                                e.stopPropagation();
+                                handleAddProduct(`${slug}`);
+                            }
+                            setIsScrolling(false);
                             //   <UserMessage title="Dodano do koszyka!" text={`Produkt: ${product.tytul} został dodany do koszyka w ilości: ${productQuantity}`}/>
                             }}
+                            
                           onClick={(e) => {
                             // setAddProduct(false);
                             e.preventDefault();
